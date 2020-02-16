@@ -45,11 +45,13 @@ const ToDoList = () => {
         setEditing(false)
 
         setList(list.map(list => (list.id === id ? data : list)));
+        setCurrentList(initialFormState);
     }
 
     // handling cancel edit
     const cancelEdit = list => {
         setEditing(false)
+        setCurrentList(initialFormState);
     }
 
     // handling delete
