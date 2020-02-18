@@ -44,7 +44,7 @@ const UbahList = ({ currentList, handlingCancel, handlingSave }) => {
         <form
             onSubmit={event => {
                 event.preventDefault()
-                if (!temp) return
+                saveEdit()
             }}
         >
             <FormControl fullWidth >
