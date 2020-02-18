@@ -34,6 +34,7 @@ const TambahList = ({ handling }) => {
     }
 
     const addToList = () => {
+        if (!temp) return
         handling(temp);
         setTemp(initialFormState)
     }
@@ -42,7 +43,6 @@ const TambahList = ({ handling }) => {
         <form
             onSubmit={event => {
                 event.preventDefault()
-                if (!temp) return
                 addToList()
             }}
         >
@@ -54,6 +54,7 @@ const TambahList = ({ handling }) => {
                         inputProps={{ 'aria-label': 'tambah list' }}
                         value={temp}
                         onChange={handleInputChange}
+                        autoFocus={true}
                     />
                     <Tooltip title="Simpan" placement="top" aria-label="simpan">
                         <IconButton className={classes.iconButton} aria-label="search" onClick={() => addToList()}>

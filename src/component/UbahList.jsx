@@ -36,6 +36,7 @@ const UbahList = ({ currentList, handlingCancel, handlingSave }) => {
     }
 
     const saveEdit = () => {
+        if (!temp) return
         handlingSave(temp.id, temp);
     }
 
@@ -44,7 +45,6 @@ const UbahList = ({ currentList, handlingCancel, handlingSave }) => {
             onSubmit={event => {
                 event.preventDefault()
                 if (!temp) return
-                saveEdit();
             }}
         >
             <FormControl fullWidth >
@@ -55,6 +55,7 @@ const UbahList = ({ currentList, handlingCancel, handlingSave }) => {
                         inputProps={{ 'aria-label': 'edit list' }}
                         value={temp.value}
                         onChange={handleInputChange}
+                        autoFocus={true}
                     />
                     <Tooltip title="Simpan" placement="top" aria-label="simpan">
                         <IconButton className={classes.iconButton} aria-label="search" onClick={() => saveEdit()}>
